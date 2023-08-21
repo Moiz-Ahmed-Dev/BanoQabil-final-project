@@ -1,5 +1,5 @@
-// const Category = require('./Model')
-const category = require('./Model')
+const Category = require('./Model')
+// const category = require('./Model')
 const { connect } = require('mongoose')
 require('dotenv').config()
 
@@ -9,7 +9,7 @@ const getAllCategories = async (req, res) => {
 
     try {
         await connect(process.env.MONGO_URL)
-        const allCategories = await category.find()
+        const allCategories = await Category.find()
         res.json({
             category: allCategories
         })
@@ -64,7 +64,7 @@ const createCategory = async (req, res) => {
 
             else {
                 await Category.create({ CategoryName, CategoryImage })
-                const allCategories = await category.find()
+                const allCategories = await Category.find()
 
 
 

@@ -9,7 +9,7 @@ const getAllProducts = async (req, res) => {
 
     try {
         await connect(process.env.MONGO_URL)
-        const allProducts = await product.find()
+        const allProducts = await Product.find()
         res.json({
             product: allProducts
         })
@@ -65,7 +65,7 @@ const createProduct = async (req, res) => {
 
             else {
                 await Product.create({ProductId, ProductName, ProductDiscription, ProductPrice, ProductBrand, ProductCategory, ProductThumbnail, ProductImages})
-                const allProducts = await product.find()
+                const allProducts = await Product.find()
 
 
 
