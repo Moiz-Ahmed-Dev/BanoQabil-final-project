@@ -1,4 +1,4 @@
-const Product = require('./Model')
+const Product = require('./model')
 // const product = require('./Model')
 const { connect } = require('mongoose')
 require('dotenv').config()

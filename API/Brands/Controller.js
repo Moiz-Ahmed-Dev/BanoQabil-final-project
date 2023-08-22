@@ -1,5 +1,4 @@
-const Brand = require('./Model')
-const brand = require('./Model')
+const Brand = require('./model')
 const { connect } = require('mongoose')
 require('dotenv').config()
 
@@ -9,7 +8,7 @@ const getAllBrands = async (req, res) => {
 
     try {
         await connect(process.env.MONGO_URL)
-        const allBrands = await brand.find()
+        const allBrands = await Brand.find()
         res.json({
             category: allBrands
         })
@@ -64,7 +63,7 @@ const createBrand = async (req, res) => {
 
             else {
                 await Brand.create({ BrandName, BrandImage })
-                const allBrands = await brand.find()
+                const allBrands = await Brand.find()
 
 
 

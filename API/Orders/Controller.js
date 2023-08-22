@@ -1,4 +1,4 @@
-const Orders = require('./Model')
+const Orders = require('./model')
 const nodemailer = require("nodemailer")
 var Mailgen = require('mailgen')
 const { connect } = require("mongoose")

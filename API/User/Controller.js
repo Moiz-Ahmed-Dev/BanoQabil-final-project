@@ -1,9 +1,8 @@
 const { connect } = require('mongoose')
-const { model, Model } = require("mongoose");
-const User = require('./Model');
+const User = require('./model');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const SECRET_KEY = "helloMoiz "
+// const SECRET_KEY = "helloMoiz "
 require('dotenv').config()
 
 const getUser = async (req, res) => {
@@ -51,7 +50,7 @@ const signupUser = async (req, res) => {
                 username: username
             });
 
-            const token = jwt.sign({ email: result.email, id: result._id }, SECRET_KEY);
+            const token = jwt.sign({ email: result.email, id: result._id }, process.env.SECRET_KEY);
             res.status(201).json({
                 user: result, token: token
             });
